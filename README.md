@@ -1,0 +1,1 @@
+# This is a project to create an app that tracks the products in your house that will expire soon and notifies you about them. It will also include cool features like recipes using the ingredients that will expire the soonest.
