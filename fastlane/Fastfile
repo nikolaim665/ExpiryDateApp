@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+fastlane_version '2.220.0'
+
+default_platform(:ios)
+
+platform :ios do
+  desc 'Run the complete XCTest suite on the default simulator'
+  lane :tests do
+    run_tests(
+      scheme: 'ExpiryDateApp',
+      project: 'ExpiryDateApp.xcodeproj',
+      device: 'iPhone 15',
+      result_bundle: true,
+      clean: true
+    )
+  end
+
+  desc 'Build and upload the latest build to TestFlight'
+  lane :beta do
+    ensure_git_status_clean
+    tests
+    build_ios_app(
+      scheme: 'ExpiryDateApp',
+      project: 'ExpiryDateApp.xcodeproj',
+      export_method: 'app-store',
+      output_directory: 'build',
+      output_name: 'ExpiryDateApp.ipa',
+      include_symbols: true,
+      include_bitcode: false
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      notify_external_testers: true,
+      groups: ['Beta Testers']
+    )
+  end
+end

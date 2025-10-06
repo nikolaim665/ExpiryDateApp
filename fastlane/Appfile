@@ -1,0 +1,5 @@
+app_identifier("com.example.ExpiryDateApp")
+apple_id("ios-dev@example.com")
+
+itc_team_id("000000000")
+team_id("000000000")

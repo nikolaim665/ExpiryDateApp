@@ -1,0 +1,69 @@
+included:
+  - ExpiryDateApp
+  - ExpiryDateAppTests
+  - ExpiryDateAppUITests
+  - Scripts
+excluded:
+  - fastlane
+  - build
+  - .build
+  - DerivedData
+
+analyzer_rules:
+  - unused_import
+
+opt_in_rules:
+  - anyobject_protocol
+  - array_init
+  - collection_alignment
+  - closure_spacing
+  - contains_over_first_not_nil
+  - empty_count
+  - explicit_init
+  - fallthrough
+  - first_where
+  - implicit_return
+  - joined_default_parameter
+  - multiline_arguments
+  - multiline_parameters
+  - nimble_operator
+  - redundant_nil_coalescing
+  - sorted_first_last
+  - yoda_condition
+
+line_length:
+  warning: 100
+  error: 120
+  ignores_function_declarations: false
+  ignores_comments: false
+identifier_name:
+  min_length:
+    warning: 2
+  excluded:
+    - id
+    - ok
+    - x
+    - y
+indentation_width:
+  warning: 4
+  error: 4
+  indentation_mode: spaces
+
+function_body_length:
+  warning: 60
+  error: 100
+file_length:
+  warning: 300
+  error: 400
+
+trailing_whitespace:
+  ignores_empty_lines: true
+
+custom_rules:
+  localized_string_key_suffix:
+    included: 
+      - \.swift
+    name: "Localized string keys end with 'Key'"
+    regex: "NSLocalizedString\\(\"[A-Za-z0-9]+(?!Key)\""
+    message: "Append 'Key' to localized string keys to align with naming convention."
+    severity: warning

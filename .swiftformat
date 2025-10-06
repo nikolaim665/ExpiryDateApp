@@ -1,0 +1,15 @@
+--swiftversion 5.9
+--indent 4
+--tabwidth 4
+--maxwidth 100
+--wraparguments before-first
+--wrapcollections before-first
+--stripunusedargs closure-only
+--self insert
+--ifdef no-indent
+--binarygrouping none
+--decimalgrouping none
+--elseposition same-line
+--importgrouping testable-before-type
+--typeblanklines remove
+--xcodeindentation enabled
